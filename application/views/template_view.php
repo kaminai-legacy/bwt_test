@@ -26,12 +26,9 @@
         <h3 class="text-muted">BWT test</h3>
         <nav>
           <ul class="nav nav-justified">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Downloads</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li <?if($data->current_page==HOME_URL)echo 'class="active"'?>><a href=<?= HOME_URL?> >Home</a></li>
+            <li <?if($data->current_page==WEATHER_URL)echo 'class="active"'?>><a href=<?="/" . WEATHER_URL?> >Weather</a></li>
+            <li <?if($data->current_page==FEEDBACK_URL)echo 'class="active"'?>><a href=<?="/" . FEEDBACK_URL?> >Feedback</a></li>
           </ul>
         </nav>
       </div>

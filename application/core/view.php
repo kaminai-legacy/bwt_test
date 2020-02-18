@@ -12,7 +12,7 @@ class View
 		}
         */
         
-        echo "view";
+        //echo "view";
 		
 		include 'application/views/'.$template_view;
 	}

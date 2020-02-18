@@ -12,3 +12,12 @@ const FORM_VALIDATION_RULES =
         "min_length":26,
     },
 };
+
+/*
+
+$( "p" ).click(function() {
+  $( this ).toggleClass( "highlight" );
+});
+</sc
+
+*/

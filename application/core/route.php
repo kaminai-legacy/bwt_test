@@ -4,7 +4,7 @@ class Route
 	static function start()
 	{
 		// контроллер и действие по умолчанию
-		$controller_name = 'Main';
+		$controller_name = 'Home';
 		$action_name = 'index';
 		
 		$routes = explode('/', $_SERVER['REQUEST_URI']);

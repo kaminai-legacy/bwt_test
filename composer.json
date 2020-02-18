@@ -1,0 +1,16 @@
+{
+    "name": "bwtTest",
+    "description": "weather parser",
+    "license": "top-secret",
+    "authors": [
+        {
+            "name": "Kaminai",
+            "email": "kephik2000@gmail.com"
+        }
+    ],
+
+	"require": {
+		"guzzlehttp/guzzle": "~6.0",
+        "silex/silex": "~1.1"
+	}
+}
