@@ -8,3 +8,25 @@ define("FEEDBACK_URL","feedback");
 define("HOME_URL","/");
 define("AUTHORIZATION_URL","authorization");
 define("REGISTRATION_URL","registration");
+define("CITY_FOR_WEATHER_REQUEST","5093");
+define("LIST_OF_MONTHS",array(
+    'Января',
+	'Февраля',
+	'Марта',
+	'Апреля',
+	'Мая',
+	'Июня',
+	'Июля',
+	'Августа',
+	'Сентября',
+	'Октября',
+	'Ноября',
+    'Декабря',
+));
+define("CLOUDINESS",array(
+    0=>'Ясно',
+	1=>'Малооблачно',
+	2=>'Облачно',
+	3=>'Пасмурно',
+	101=>'Переменная облачность',
+));

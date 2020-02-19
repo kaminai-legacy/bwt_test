@@ -1,6 +1,7 @@
-const forms = document.querySelectorAll(".form");
+const forms = document.querySelectorAll("form");
 
-const set_error = (input,message) =>
+
+const set_error = (input,message="empty") =>
 {
     const error = document.querySelector(`#${input.getAttribute("name")}-error`);
     console.log(error,`#${input.getAttribute("name")}-error`);
@@ -23,8 +24,10 @@ const delete_error = (input) =>
 
 const add_validation_on_form_element = (element) =>
 {
-    if(element.nodeType == 1)
+    console.log(element.getAttribute("type"));
+    if((element.nodeType == 1) && (element.getAttribute("type") != "submit"))
        {
+        set_error(element);
         delete_error(element);
         element.addEventListener("focus",(e)=>
         {

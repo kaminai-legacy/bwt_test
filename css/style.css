@@ -1,8 +1,48 @@
-.input-error{
+.input-error
+{
 	text-align: center;
 	border-radius: 10px;
 	border: 2px solid red;
 	width: 100%;	
 	display: none;
 	margin: 5px 0;
+}
+
+.weather-parameters
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	max-width: 70vw;
+	margin: 0 auto;
+}
+
+.weather-column
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.weather-parameter
+{
+	padding: 10px;
+	margin: 5px;
+}
+
+.weather-icon
+{
+	-moz-transform: scale(2.5);
+    -ms-transform: scale(2.5);
+    -o-transform: scale(2.5);
+    -webkit-transform: scale(2.5);
+    transform: scale(2.5);
+}
+
+.btn-wrapper{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
 }

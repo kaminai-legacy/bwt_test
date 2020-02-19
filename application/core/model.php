@@ -1,19 +1,27 @@
 <?
 
-//use \GuzzleHttp\Client;
+use GuzzleHttp\Client;
 
 class Model
 {
     function __construct()
 	{
-		
-		//$client = new Client();
-		//use Guzzle\Http\EntityBody;
-		//use Guzzle\Http\Message\Request;
-		//use Guzzle\Http\Message\Response;
 		$this->$mysqli = new mysqli(DB_URL, DB_LOGIN, DB_PASSWORD,DB_NAME) or die($this->$mysqli->connect_error);		
-	//	$this->$client = new \GuzzleHttp\Client();
-		//$this->$client = new Client(['headers' => ['X-Gismeteo-Token' => '56b30cb255.3443075']]);
+		$this->$client = new Client();
+	}
+
+	public function gismeteo_request($query_url,$params=[])
+	{ 
+		$res = $this->$client->request('GET', 'https://api.gismeteo.net/v2/weather/current/'.CITY_FOR_WEATHER_REQUEST, [
+			'headers' => [
+				'X-Gismeteo-Token' => '5c10e9ce8e02f6.83138424',
+				'Accept-Encoding' => 'gzip',
+			],
+			'query' => $params,
+			'decode_content' => 'gzip',
+		]);
+
+		return json_decode($res->getBody()->getContents(),true);
 	}
 
     public function db_select_array($query)
