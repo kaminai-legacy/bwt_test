@@ -1,8 +1,9 @@
-<?
+<?php
 class Route
 {
 	static function start()
 	{
+		include $_SERVER["DOCUMENT_ROOT"] . '/application/models/model_user.php';
 		// контроллер и действие по умолчанию
 		$controller_name = 'Home';
 		$action_name = 'index';
@@ -38,6 +39,7 @@ class Route
 		// подцепляем файл с классом контроллера
 		$controller_file = strtolower($controller_name).'.php';
 		$controller_path = "application/controllers/".$controller_file;
+	
 		if(file_exists($controller_path))
 		{
 			include "application/controllers/".$controller_file;
@@ -54,11 +56,11 @@ class Route
 		// создаем контроллер
 		$controller = new $controller_name;
 		$action = $action_name;
-		
+
 		if(method_exists($controller, $action))
 		{
 			// вызываем действие контроллера
-			$controller->$action();
+			$controller->$action($routes[3]);
 		}
 		else
 		{
@@ -68,11 +70,23 @@ class Route
 	
 	}
 	
-	function ErrorPage404()
+	static function ErrorPage404()
 	{
-        $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
         header('HTTP/1.1 404 Not Found');
 		header("Status: 404 Not Found");
-		header('Location:'.$host.'404');
-    }
+		header('Location:'. URL .'404');
+	}
+	
+	static function redirect($url)
+	{
+		if($url == HOME_URL)
+		{
+			header('Location: ' . URL);
+		}
+		else
+		{
+			header('Location: ' . URL . $url);
+		}
+	}	
+
 }

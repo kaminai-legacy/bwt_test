@@ -6,5 +6,6 @@ class Model_Registration extends Model
 	$r = $this->db_select_row($q);
 		return $r;
 	}
+
 }
 ?>

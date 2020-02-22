@@ -3,12 +3,15 @@ define("DB_URL","localhost");
 define("DB_NAME","bwt_test");
 define("DB_LOGIN","mysql");
 define("DB_PASSWORD","mysql");
-define("WEATHER_URL","weather");
-define("FEEDBACK_URL","feedback");
+define("URL",'http://'.$_SERVER['HTTP_HOST'].'/');
+define("WEATHER_URL","/weather");
+define("FEEDBACK_URL","/feedback/list/1");
 define("HOME_URL","/");
 define("AUTHORIZATION_URL","authorization");
 define("REGISTRATION_URL","registration");
 define("CITY_FOR_WEATHER_REQUEST","5093");
+define("NUMBER_FEEDBACKS_FOR_PAGE",1);
+define("NUMBER_FEEDBACKS_FOR_PAGINATION",5);
 define("LIST_OF_MONTHS",array(
     'Января',
 	'Февраля',

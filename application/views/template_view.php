@@ -9,33 +9,102 @@
 		<title>BWT test</title>
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
 		<link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" type="text/css" href="/css/style.css" />
-		<link rel="stylesheet" href="css/weather-icons.min.css">
-		<script src="/js/jquery-3.4.1.min.js" type="text/javascript"></script>
 		<link href="https://getbootstrap.com/docs/3.3/examples/justified-nav/justified-nav.css" rel="stylesheet">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/product/">
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+		<script src="/js/bootstrap/bootstrap.min.js"></script>
+		<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
 		<script src="/js/deep_search.js" type="text/javascript" defer></script>
 		<script src="/js/validation.js" type="text/javascript" defer></script>
 	</head>
 	<body>
-		
-	<div class="container">	
-	<div class="masthead">
-        <h3 class="text-muted">BWT test</h3>
-        <nav>
-          <ul class="nav nav-justified">
-            <li <?if($data->current_page==HOME_URL)echo 'class="active"'?>><a href=<?= HOME_URL?> >Домашняя</a></li>
-            <li <?if($data->current_page==WEATHER_URL)echo 'class="active"'?>><a href=<?="/" . WEATHER_URL?> >Погода</a></li>
-            <li <?if($data->current_page==FEEDBACK_URL)echo 'class="active"'?>><a href=<?="/" . FEEDBACK_URL?> >Отзыв</a></li>
-          </ul>
-        </nav>
-      </div>
+
+	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
+  style=<? if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) )
+  {
+    echo 'background-color:'. '#3e8ef7!important;color: #fff;';
+  }
+  ?>
+  >
+	<h5 class="my-0 mr-md-auto font-weight-normal">BWT test</h5>
+	<nav class="my-2 my-md-0 mr-md-3">
+		<a class="p-2 text-dark bolder" href=<?= HOME_URL?>>Домашняя</a>
+		<a class="p-2 text-dark bolder" href=<?= WEATHER_URL?>>Погода</a>
+		<a class="p-2 text-dark bolder" href=<?= FEEDBACK_URL?>>Отзывы</a>
+	</nav>
+  <?php if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) ): ?>
+    <div class="bolder">
+      <?= "Привет, " . $_SESSION["user"]["name"]?>
+    </div>
+  <?php else: ?>
+    <a class="btn btn-outline-primary" href=<?= AUTHORIZATION_URL?>>Авторизация</a>
+  <?php endif; ?>
 	</div>
 
+ 
 
-		<?php include 'application/views/'.$content_view; ?>
+
+
+
+	<!-- <div class="list-group">
+		<a class="list-group-item list-group-item-action <?if($data->current_page==HOME_URL)echo 'active'?>" href=<?= HOME_URL?> >Домашняя</a>
+		<a class="list-group-item list-group-item-action <?if($data->current_page==WEATHER_URL)echo 'active'?>" href=<?="/" . WEATHER_URL?> >Погода</a>
+		<a class="list-group-item list-group-item-action <?if($data->current_page==FEEDBACK_URL)echo 'active'?>" href=<?="/" . FEEDBACK_URL?> >Отзывы</a>
+	</div> -->
+
+		<?php include 'application/views/'.$content_view;?>
+
+		<footer class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md">
+          
+          <small class="d-block mb-3 text-muted">© BWT test 2020—2020. Все права защищены.</small>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Features</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Cool stuff</a></li>
+            <li><a class="text-muted" href="#">Random feature</a></li>
+            <li><a class="text-muted" href="#">Team feature</a></li>
+            <li><a class="text-muted" href="#">Stuff for developers</a></li>
+            <li><a class="text-muted" href="#">Another one</a></li>
+            <li><a class="text-muted" href="#">Last time</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Resource</a></li>
+            <li><a class="text-muted" href="#">Resource name</a></li>
+            <li><a class="text-muted" href="#">Another resource</a></li>
+            <li><a class="text-muted" href="#">Final resource</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>Resources</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Business</a></li>
+            <li><a class="text-muted" href="#">Education</a></li>
+            <li><a class="text-muted" href="#">Government</a></li>
+            <li><a class="text-muted" href="#">Gaming</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md">
+          <h5>About</h5>
+          <ul class="list-unstyled text-small">
+            <li><a class="text-muted" href="#">Team</a></li>
+            <li><a class="text-muted" href="#">Locations</a></li>
+            <li><a class="text-muted" href="#">Privacy</a></li>
+            <li><a class="text-muted" href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
 
 	</body>
 </html>
