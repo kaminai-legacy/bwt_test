@@ -38,13 +38,6 @@
 		<a class="p-2 text-dark bolder" href=<?= FEEDBACK_URL?>>Отзывы</a>
 	</nav>
   <?php if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) ): ?>
-
-
-
-    <!-- <div class="bolder">
-      <?= "Привет, " . $_SESSION["user"]["name"]?>
-    </div> -->
-
     <div class="dropdown dropleft">
       <div class="dropdown-toggle bolder"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <?= "Привет, " . $_SESSION["user"]["name"]?>
@@ -53,70 +46,29 @@
         <a class="dropdown-item" href="/logout">Выйти с аккаунта</a>
       </div>
     </div>
-
-
-
-
   <?php else: ?>
     <a class="btn btn-outline-primary" href=<?= AUTHORIZATION_URL?>>Авторизация</a>
   <?php endif; ?>
-	</div>
-
- 
-
-
-
-
-	<!-- <div class="list-group">
-		<a class="list-group-item list-group-item-action <?if($data->current_page==HOME_URL)echo 'active'?>" href=<?= HOME_URL?> >Домашняя</a>
-		<a class="list-group-item list-group-item-action <?if($data->current_page==WEATHER_URL)echo 'active'?>" href=<?="/" . WEATHER_URL?> >Погода</a>
-		<a class="list-group-item list-group-item-action <?if($data->current_page==FEEDBACK_URL)echo 'active'?>" href=<?="/" . FEEDBACK_URL?> >Отзывы</a>
-	</div> -->
-
-		<?php include 'application/views/'.$content_view;?>
-
+  </div>
+  		<?php include 'application/views/'.$content_view;?>
+    <hr/>
 		<footer class="container py-5">
       <div class="row">
         <div class="col-12 col-md">
-          
           <small class="d-block mb-3 text-muted">© BWT test 2020—2020. Все права защищены.</small>
         </div>
         <div class="col-6 col-md">
-          <h5>Features</h5>
+          <h5>Наши контакты</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Cool stuff</a></li>
-            <li><a class="text-muted" href="#">Random feature</a></li>
-            <li><a class="text-muted" href="#">Team feature</a></li>
-            <li><a class="text-muted" href="#">Stuff for developers</a></li>
-            <li><a class="text-muted" href="#">Another one</a></li>
-            <li><a class="text-muted" href="#">Last time</a></li>
+            <li><small class="d-block mb-3 text-muted">+88005553535</small></li>
+            <li><small class="d-block mb-3 text-muted">bwt_test@gmail.com</small></li>
           </ul>
         </div>
         <div class="col-6 col-md">
-          <h5>Resources</h5>
+          <h5>Наши партнеры</h5>
           <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Resource</a></li>
-            <li><a class="text-muted" href="#">Resource name</a></li>
-            <li><a class="text-muted" href="#">Another resource</a></li>
-            <li><a class="text-muted" href="#">Final resource</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>Resources</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Business</a></li>
-            <li><a class="text-muted" href="#">Education</a></li>
-            <li><a class="text-muted" href="#">Government</a></li>
-            <li><a class="text-muted" href="#">Gaming</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-md">
-          <h5>About</h5>
-          <ul class="list-unstyled text-small">
-            <li><a class="text-muted" href="#">Team</a></li>
-            <li><a class="text-muted" href="#">Locations</a></li>
-            <li><a class="text-muted" href="#">Privacy</a></li>
-            <li><a class="text-muted" href="#">Terms</a></li>
+            <li><small class="d-block mb-3 text-muted">Партнер 1</small></li>
+            <li><small class="d-block mb-3 text-muted">Партнер 2</small></li>
           </ul>
         </div>
       </div>

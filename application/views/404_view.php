@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-12">
-            <div class="error-template">
+            <div class="text-centered">
                 <h1>
                     Oops!</h1>
                 <h2>

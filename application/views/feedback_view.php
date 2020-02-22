@@ -1,8 +1,5 @@
 <?php if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) ): ?>
-
     <?foreach($data->contain as $key=>$value):?>
-
-
         <div class="container">
             <div class="<?
                     if($_SESSION["user"]["id"]==$value["user_id"])
@@ -16,14 +13,29 @@
                 ?>"
                 >
                 <div class="col-sm-10">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default <?if($_SESSION["user"]["id"]==$value["user_id"])
+                    {
+                        echo 'itself-feedback';
+                    }   
+                    else
+                    {
+                        echo '';
+                    }       
+                ?>" 
+                >
                         <div class="panel-heading">
+                        <?php if ($_SESSION["user"]["id"]==$value["user_id"]): ?>
+                            <strong>
+                                <?="Вы"?>
+                            </strong>
+                        <?php else: ?>
                             <strong>
                                 <?= $value["name"]?>
                             </strong>
                             <span class="text-muted">
                                 (<?= $value["email"]?>)
                             </span>
+                        <?php endif; ?>
                         </div>
                         <div class="panel-body">
                             <?= $value["text"]?>
@@ -32,13 +44,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
     <?endforeach;?>
 <div class="container">
     <div class="row justify-content-center">
@@ -68,6 +73,7 @@
         </nav>
     </div>
 </div>
+<hr/>
 <form method="post" class="form">
 <!-- <div class="form-group">
 

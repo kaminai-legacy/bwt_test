@@ -10,7 +10,7 @@ define("HOME_URL","/");
 define("AUTHORIZATION_URL","authorization");
 define("REGISTRATION_URL","registration");
 define("CITY_FOR_WEATHER_REQUEST","5093");
-define("NUMBER_FEEDBACKS_FOR_PAGE",1);
+define("NUMBER_FEEDBACKS_FOR_PAGE",5);
 define("NUMBER_FEEDBACKS_FOR_PAGINATION",5);
 define("LIST_OF_MONTHS",array(
     'Января',

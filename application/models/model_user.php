@@ -10,9 +10,12 @@ class Model_User extends Model
 		}
 	}
 
-	function registration($name, $forename, $email, $password, $gender=null, $birthday=null){
-		$q ="INSERT INTO `users`(`name`, `forename`, `email`, `password`, `gender`, `birthday`) VALUES 
-		('$name', '$forename', '$email', '$password', $gender, '$birthday')";
+	function registration($name, $forename, $email, $password, $gender, $birthday=null){
+		
+		$q ="INSERT INTO `users`(`name`, `forename`, `email`, `password`, `gender`";
+		$q .=($birthday)?", `birthday`)":")";
+		$q .=" VALUES ('$name', '$forename', '$email', '$password', $gender";
+		$q .=($birthday)?",'$birthday')":")";
 		$this->db_query($q);
 		$this->authorization($email, $password);
 	}

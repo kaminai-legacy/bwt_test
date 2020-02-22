@@ -44,6 +44,11 @@ body
 	margin: 5px;
 }
 
+.wether-another-parameters
+{
+	font-size: x-large;
+}
+
 .weather-icon
 {
 	-moz-transform: scale(2.5);
@@ -76,7 +81,7 @@ body
 	font-weight: 500;
 }
 
-.error-template
+.text-centered
 {
 	text-align: center;
 }
@@ -111,7 +116,7 @@ body
 .panel-default>.panel-heading {
     color: #333;
     background-color: #f5f5f5;
-    border-color: #ddd;
+	border-color: #ddd;
 }
 
 .panel>.panel-heading:after,.panel>.panel-heading:before{
@@ -129,4 +134,19 @@ body
 
 .panel-body {
     padding: 15px;
+}
+
+.itself-feedback
+{
+	background-color: rgb(220, 234, 253);
+}
+
+.without-bg
+{
+	background-color: transparent!important;
+}
+
+.article
+{
+	font-size: medium;
 }

@@ -19,20 +19,14 @@
 {
     logout,(complete)
     design for feedbacks,(complete)
-    add some design for weather,
-    finished footer,
+    add some design for weather,(complete)
+    finished footer,(complete)
     finished validation,
-    create ER-diagram for DB,
+    create ER-diagram for DB,(complete)
     check all project
 }   
 
-//https://stackoverflow.com/questions/5178697/mysql-insert-into-multiple-tables-database-normalization
-//https://stackoverflow.com/questions/17112852/get-the-new-record-primary-key-id-from-mysql-insert-query
 
-BEGIN;
-INSERT INTO users (username, password)
-  VALUES('test', 'test');
-INSERT INTO profiles (userid, bio, homepage) 
-  VALUES(LAST_INSERT_ID(),'Hello world!', 'http://www.stackoverflow.com');
-COMMIT;
-SELECT LAST_INSERT_ID();
+
+
+
