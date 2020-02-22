@@ -71,7 +71,7 @@
 
         <div class="col-md-2 mb-3">
             <label for="validationServer01">День рождения</label>
-            <input type="date" class="form-control" id="validationServer01" value="" name="birthday" data-validation="birthday" name="birthday" required>
+            <input type="date" class="form-control" id="validationServer01" value="" name="birthday" data-validation="birthday" name="birthday">
             <div class="valid-feedback">
                 Looks good!
             </div>

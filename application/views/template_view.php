@@ -27,7 +27,7 @@
 	<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
   style=<? if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) )
   {
-    echo 'background-color:'. '#3e8ef7!important;color: #fff;';
+    echo 'background-color:'. '#3e8ef7!important;color:'.'#fff;';
   }
   ?>
   >
@@ -38,9 +38,25 @@
 		<a class="p-2 text-dark bolder" href=<?= FEEDBACK_URL?>>Отзывы</a>
 	</nav>
   <?php if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) ): ?>
-    <div class="bolder">
+
+
+
+    <!-- <div class="bolder">
       <?= "Привет, " . $_SESSION["user"]["name"]?>
+    </div> -->
+
+    <div class="dropdown dropleft">
+      <div class="dropdown-toggle bolder"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <?= "Привет, " . $_SESSION["user"]["name"]?>
+      </div>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="/logout">Выйти с аккаунта</a>
+      </div>
     </div>
+
+
+
+
   <?php else: ?>
     <a class="btn btn-outline-primary" href=<?= AUTHORIZATION_URL?>>Авторизация</a>
   <?php endif; ?>

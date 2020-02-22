@@ -14,9 +14,10 @@ class Controller_Authorization extends Controller
 		{
 			Route::redirect(HOME_URL);
 		}
-
+		
 		if(( !( empty($_POST["authorization-submit"]) ) ) && ( isset($_POST["authorization-submit"]) ))
 		{
+			
 			if 
 			(
 				( !( empty($_POST["email"]) ) ) && ( isset($_POST["email"]) ) &&

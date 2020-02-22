@@ -1,29 +1,73 @@
 <?php if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) ): ?>
 
     <?foreach($data->contain as $key=>$value):?>
-        <p>
-            <?= $value["text"]?>
-        </p>
+
+
+        <div class="container">
+            <div class="<?
+                    if($_SESSION["user"]["id"]==$value["user_id"])
+                    {
+                        echo 'row justify-content-end';
+                    }   
+                    else
+                    {
+                        echo 'row justify-content-start';
+                    }       
+                ?>"
+                >
+                <div class="col-sm-10">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong>
+                                <?= $value["name"]?>
+                            </strong>
+                            <span class="text-muted">
+                                (<?= $value["email"]?>)
+                            </span>
+                        </div>
+                        <div class="panel-body">
+                            <?= $value["text"]?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
     <?endforeach;?>
-
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item <?if($data->current_page-1 <= 0){ echo "disabled";}?>">
-      <a class="page-link" href=<?=$data->current_page-1?> aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <?for($i = $data->fist_page_for_pagination; $i <= $data->last_page_for_pagination; $i++):?>
-        <li class="page-item  <?if($data->current_page == $i){ echo "active";}?>"><a class="page-link" href=<?= $i?>><?= $i?></a></li>
-    <?endfor;?>
-    <li class="page-item <?if($data->current_page+1 > $data->last_page_for_pagination){ echo "disabled";}?>">
-      <a class="page-link" href=<?=$data->current_page+1?> aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-
+<div class="container">
+    <div class="row justify-content-center">
+        <nav aria-label="Page navigation example" style="display: inline-flex;">
+            <ul class="pagination" style="display: inline-flex;">
+                <li class="page-item <?if($data->current_page-1 <= 0){ echo "disabled";}?>">
+                    <a class="page-link" href=<?=$data->current_page-1?> aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <?for($i = $data->fist_page_for_pagination; $i <= $data->last_page_for_pagination; $i++):?>
+                    <li class="page-item <?if($data->current_page == $i){ echo "disabled";}?> <?if($data->current_page == $i){ echo "active";}?>">
+                        <a 
+                        class="page-link"  
+                        style="<?if($data->current_page == $i){ echo "color: #fff;background-color: #007bff;border-color: #007bff;";}?>" 
+                        href=<?= $i?>>
+                            <?= $i?>
+                        </a>
+                    </li>
+                <?endfor;?>
+                <li class="page-item <?if($data->current_page+1 > $data->last_page_for_pagination){ echo "disabled";}?>">
+                    <a class="page-link" href=<?=$data->current_page+1?> aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
 <form method="post" class="form">
 <!-- <div class="form-group">
 
@@ -51,7 +95,7 @@
 <div class="form-row">
         <div class="col-md-6 mb-3">
             <label for="validationServer01">Имя пользователя</label>
-            <input type="text" class="form-control" id="validationServer01" placeholder="Имя" value="" required>
+            <input type="text" class="form-control" id="validationServer01" placeholder="Имя" value="" data-validation="name" name="name" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -62,7 +106,7 @@
 
         <div class="col-md-6 mb-3">
             <label for="validationServer01">Email пользователя</label>
-            <input type="email" class="form-control" id="validationServer01" placeholder="Email" value="" required>
+            <input type="email" class="form-control" id="validationServer01" placeholder="Email" value="" data-validation="email" name="email" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -74,7 +118,7 @@
 <div class="form-row">
         <div class="col-md-12 mb-3">
             <label for="validationServer01">Имя пользователя</label>
-            <textarea type="text" class="form-control" id="validationServer01" placeholder="Отзыв, все очень круто" value="" required></textarea>
+            <textarea type="text" class="form-control" id="validationServer01" placeholder="Отзыв, все очень круто" value="" data-validation="feedback" name="feedback" required></textarea>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -90,4 +134,8 @@
 
 </div>
 </form>
+<?php else: ?>
+    <h4>
+        Для просмотра этой страницы, вы должны авторизоватся
+    </h4>
 <?php endif; ?>

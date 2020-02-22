@@ -5,7 +5,7 @@
 <div class="form-row justify-content-md-center">
         <div class="col-md-4 mb-3">
             <label for="validationServer01">Email пользователя</label>
-            <input type="email" class="form-control" id="validationServer01" placeholder="Email" value="" required>
+            <input type="email" class="form-control" id="validationServer01" placeholder="Email" value="" data-validation="email" name="email" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -17,7 +17,7 @@
 <div class="form-row justify-content-md-center">
         <div class="col-md-4 mb-3">
             <label for="validationServer01">Пароль пользователя</label>
-            <input type="password" class="form-control" id="validationServer01" placeholder="пароль" value="" required>
+            <input type="password" class="form-control" id="validationServer01" placeholder="пароль" value="" data-validation="password" name="password" required>
             <div class="valid-feedback">
                 Looks good!
             </div>

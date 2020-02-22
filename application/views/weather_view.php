@@ -69,7 +69,7 @@
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
                        
-                            <img class="" style="width: 15rem;" src=<?="/img/new/" . $data->weather["icon"] . ".svg"?>>   
+                            <img class="" style="width: 15rem;" src=<?="/img/weather_icon/" . $data->weather["icon"] . ".svg"?>>   
                             <div class="weather-parameter weather-description">
                             <?=$data->weather["temperature"]["air"]["C"] . "°C " . $data->weather["description"]["full"]?>
                             </div>

@@ -74,7 +74,7 @@ class Route
 	{
         header('HTTP/1.1 404 Not Found');
 		header("Status: 404 Not Found");
-		header('Location:'. URL .'404');
+		header('Location:'. URL .'/404');
 	}
 	
 	static function redirect($url)
