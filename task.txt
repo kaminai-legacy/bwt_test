@@ -17,12 +17,7 @@
 - прислать нам ссылку на github проект.
 
 {
-    logout,(complete)
-    design for feedbacks,(complete)
-    add some design for weather,(complete)
-    finished footer,(complete)
-    finished validation,
-    create ER-diagram for DB,(complete)
+    finished validation,(1/2)
     check all project
 }   
 

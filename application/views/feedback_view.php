@@ -74,74 +74,45 @@
     </div>
 </div>
 <hr/>
-<form method="post" class="form">
-<!-- <div class="form-group">
-
-<div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">Имя пользователя:</span>
-    <input type="text" class="form-control" placeholder="Ваше имя" aria-describedby="basic-addon1" data-validation="name" name="name">
-</div>
-<div class="alert alert-danger" role="alert" id="name-error" class="input-error"></div>
-
-<div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">Email пользователя:</span>
-    <input type="text" class="form-control" placeholder="Ваша почта" aria-describedby="basic-addon1" data-validation="email" name="email">
-</div>
-<div class="alert alert-danger" role="alert" id="email-error" class="input-error"></div>
-
-<div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">Отзыв:</span>
-    <input type="text" class="form-control" placeholder="Отзыв, все очень круто" aria-describedby="basic-addon1" data-validation="feedback" name="feedback">
-</div>
-<div class="alert alert-danger" role="alert" id="feedback-error" class="input-error"></div> -->
-
-
-
-
-<div class="form-row">
-        <div class="col-md-6 mb-3">
-            <label for="validationServer01">Имя пользователя</label>
-            <input type="text" class="form-control" id="validationServer01" placeholder="Имя" value="" data-validation="name" name="name" required>
-            <div class="valid-feedback">
-                Looks good!
+<form method="post" class="form" id="feedback">
+    <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="feedback-name">Имя пользователя</label>
+                <input type="text" class="form-control" id="feedback-name" placeholder="Имя" value="" data-validation="name" name="name" required>
+                <div class="invalid-feedback" id="error-feedback-name">
+                    Some text
+                </div>
             </div>
-            <div class="invalid-feedback">
-                Please choose a username.
-            </div>
-        </div>
 
-        <div class="col-md-6 mb-3">
-            <label for="validationServer01">Email пользователя</label>
-            <input type="email" class="form-control" id="validationServer01" placeholder="Email" value="" data-validation="email" name="email" required>
-            <div class="valid-feedback">
-                Looks good!
+            <div class="col-md-6 mb-3">
+                <label for="feedback-email">Email пользователя</label>
+                <input type="email" class="form-control" id="feedback-email" placeholder="Email" value="" data-validation="email" name="email" required>
+                <div class="invalid-feedback" id="error-feedback-email">
+                    Some text
+                </div>
             </div>
-            <div class="invalid-feedback">
-                Please choose a username.
-            </div>
-        </div>
-</div>
-<div class="form-row">
-        <div class="col-md-12 mb-3">
-            <label for="validationServer01">Имя пользователя</label>
-            <textarea type="text" class="form-control" id="validationServer01" placeholder="Отзыв, все очень круто" value="" data-validation="feedback" name="feedback" required></textarea>
-            <div class="valid-feedback">
-                Looks good!
-            </div>
-            <div class="invalid-feedback">
-                Please choose a username.
-            </div>
-        </div>
-</div>
-
-<div class="btn-wrapper">
-        <input type="submit" class="btn btn-primary" name="feedback-submit" value="Оставить отзыв"/>
     </div>
+    <div class="form-row">
+            <div class="col-md-12 mb-3">
+                <label for="feedback-contain">Имя пользователя</label>
+                <textarea type="text" class="form-control" id="feedback-contain" placeholder="Отзыв, все очень круто" value="" data-validation="feedback" name="feedback" required></textarea>
+                <div class="invalid-feedback" id="error-feedback-contain">
+                    Some text   
+                </div>
+            </div>
+    </div>
+    <div class="btn-wrapper">
+            <input type="submit" class="btn btn-primary" name="feedback-submit" id="feedback-submit" value="Оставить отзыв"/>
+        </div>
 
-</div>
+    </div>
 </form>
 <?php else: ?>
-    <h4>
-        Для просмотра этой страницы, вы должны авторизоватся
-    </h4>
+    <div class="container">
+        <div class="row justify-content-center">
+            <h4>
+                Для просмотра этой страницы, вы должны авторизоватся
+            </h4>
+        </div>
+    </div>
 <?php endif; ?>
