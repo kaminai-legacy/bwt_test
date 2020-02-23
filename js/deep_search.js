@@ -1,4 +1,5 @@
-const deep_search = (needed_tag, parent_tag, result_accumulator=[]) =>
+// поиск всех елементов с определенным тегом в дочерних
+const deep_search = (needed_tag, current_tag, result_accumulator=[]) =>
 {
 
     function check_children (node)
@@ -9,7 +10,7 @@ const deep_search = (needed_tag, parent_tag, result_accumulator=[]) =>
         }
     }
 
-    for(let node of parent_tag.children){
+    for(let node of current_tag.children){
 
         if(node.tagName == needed_tag.toUpperCase())
         {

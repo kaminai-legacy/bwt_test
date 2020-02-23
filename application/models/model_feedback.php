@@ -1,6 +1,7 @@
 <?
 class Model_Feedback extends Model
 {
+	
 	function getCount(){
 		$q ="SELECT COUNT('id') as `number` 
 		FROM `feedbacks`";
@@ -18,28 +19,7 @@ class Model_Feedback extends Model
 		return $r;
 	}
 
-
-/*
-
-BEGIN;
-INSERT INTO users (username, password)
-  VALUES('test', 'test');
-INSERT INTO profiles (userid, bio, homepage) 
-  VALUES(LAST_INSERT_ID(),'Hello world!', 'http://www.stackoverflow.com');
-COMMIT;
-SELECT LAST_INSERT_ID();
-
-
-SET @lastID := LAST_INSERT_ID();
-
-@lastID
-
-BEGIN;
-
-*/
-
 	function send_feedback($name, $email, $feedback){
-		//INSERT INTO `feedbacks`(`id`, `name`, `email`, `text`) VALUES ([value-1],[value-2],[value-3],[value-4])
 		$q ="BEGIN;";
 		$this->db_query($q);
 		$q ="INSERT INTO `feedbacks` (`name`, `email`, `text`)VALUES ('$name', '$email', '$feedback');";
@@ -49,9 +29,7 @@ BEGIN;
 		$this->db_query($q);
 		$q ="COMMIT;";
 		$this->db_query($q);
-		//$this->db_query($q);
 	}
-	
 
 }
 ?>

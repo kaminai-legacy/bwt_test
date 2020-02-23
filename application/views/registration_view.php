@@ -1,8 +1,7 @@
 <form class="form" method="post" id="registration">
     <div class="form-row justify-content-md-center">
-        <p>Уже зарегистрирован тогда тебе сюда<a class="p-2 text-dark bolder" href=<?= AUTHORIZATION_URL?>>Авторизация</a></p>
+        <p>Уже зарегистрирован тогда тебе сюда<a class="p-2 bolder dark-blue" href=<?= AUTHORIZATION_URL?>>Авторизация</a></p>
     </div>
-
     <div class="form-row justify-content-md-center">
         <div class="col-md-4     mb-3">
             <label for="registration-name">Имя пользователя</label>
@@ -11,7 +10,6 @@
                 Please choose a username.
             </div>
         </div>
-
         <div class="col-md-4 mb-3">
             <label for="registration-forename">Фамилия пользователя</label>
             <input type="text" class="form-control" id="registration-forename" placeholder="Фамилия" value="" data-validation="forename" name="forename" required>
@@ -20,7 +18,6 @@
             </div>
         </div>
     </div>
-
     <div class="form-row justify-content-md-center">
         <div class="col-md-4 mb-3">
             <label for="registration-email">Email пользователя</label>
@@ -29,7 +26,6 @@
                 Please choose a username.
             </div>
         </div>
-
         <div class="col-md-2 mb-3">
             <label for="registration-gender">Пол пользователя</label>
             <select class="form-control" data-validation="gender" id="registration-gender" name="gender" data-validation="gender" name="gender">
@@ -51,7 +47,6 @@
                 Please provide a valid gender.
             </div>	
         </div>
-
         <div class="col-md-2 mb-3">
             <label for="registration-birthday">День рождения</label>
             <input type="date" class="form-control" id="registration-birthday" value="" name="birthday" data-validation="birthday" name="birthday">
@@ -60,9 +55,6 @@
             </div>
         </div>
     </div>
-
-
-  
     <div class="form-row justify-content-md-center">
         <div class="col-md-4 mb-3">
             <label for="registration-password">Пароль</label>
@@ -71,7 +63,6 @@
                 Please choose a username.
             </div>
         </div>
-
         <div class="col-md-4 mb-3">
             <label for="registration-confirm_password">Подтверждение пароля</label>
             <input type="password" class="form-control" id="registration-confirm_password" placeholder="пароль" data-validation="confirm_password" name="confirm_password" value="" required>
@@ -82,5 +73,11 @@
     </div>
     <div class="btn-wrapper">
         <input type="submit" class="btn btn-primary" id="registration-submit" name="registration-submit" value="Зарегистрироваться"/>
+        <?php if ( ( !( empty($data->error_message) ) ) &&  ( isset($data->error_message) ) ): ?>
+            <br/>
+            <div class="alert alert-danger top-margin" role="alert">
+                <?=$data->error_message?>
+            </div>
+        <?php endif; ?>
     </div>
 </form>

@@ -1,6 +1,5 @@
 <?php
 session_start();
-//$_SESSION["user"]["name"] = "arnold";
 require_once $_SERVER["DOCUMENT_ROOT"] . '/vendor/autoload.php';
 
 require_once $_SERVER["DOCUMENT_ROOT"] . '/application/constants.php';

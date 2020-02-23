@@ -1,3 +1,4 @@
+// Удаление строкового значения из атрибута(если такое есть)
 const remove_string_value_from_attribute = (element, attribute, value) =>
 {
     let element_attribute = element.getAttribute(attribute) || "";
@@ -15,6 +16,7 @@ const remove_string_value_from_attribute = (element, attribute, value) =>
     element.setAttribute(attribute,element_attribute);
 }  
 
+// Добавление строкового значения в атрибут(если такого нет)
 const add_string_value_to_attribute = (element, attribute, value) =>
 {
     let element_attribute = element.getAttribute(attribute) || "";
@@ -33,6 +35,7 @@ const add_string_value_to_attribute = (element, attribute, value) =>
     element.setAttribute(attribute,element_attribute);
 }  
 
+// Переключение строкового значения в атрибуте(есть/нет)
 const toggle_string_value_in_attribute = (element, attribute, value) =>
 {
     let element_attribute = element.getAttribute(attribute) || "";

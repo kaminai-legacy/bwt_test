@@ -1,19 +1,10 @@
 <?
 class View
 {
-	//public $template_view; // здесь можно указать общий вид по умолчанию.
-	
+	// $data переменная с параметрами для отображения на странице
+	// $template_view базовая страница в которую подключается страница с контентом $content_view
 	function generate($content_view, $template_view, $data = null)
 	{
-		/*
-		if(is_array($data)) {
-			// преобразуем элементы массива в переменные
-			extract($data);
-		}
-        */
-        
-        //echo "view";
-		
 		include 'application/views/'.$template_view;
 	}
 }

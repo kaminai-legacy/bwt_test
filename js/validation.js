@@ -1,5 +1,7 @@
+// старница с инициализацией валидации для клиента
 const forms = document.querySelectorAll("form");
 
+// Отображения ошибки под полем
 const set_error = (input,message="empty") =>
 {
     const error = document.querySelector(`#error-${input.getAttribute("id")}`);
@@ -15,6 +17,7 @@ const set_error = (input,message="empty") =>
     submit.setAttribute("disabled", "disabled");
 };
 
+// Скрытие ошибки под полем
 const delete_error = (input) =>
 {
     const form = document.querySelector(`#${input.getAttribute("id").split("-")[0]}`);
@@ -28,6 +31,7 @@ const delete_error = (input) =>
     $(`#${input.getAttribute("id")}`).removeClass( "is-invalid" );
 };
 
+// Проверка поля по всем правилам
 const check_field_by_rules = (input,rules) =>
 {
     delete_error(input);
@@ -62,6 +66,7 @@ const check_field_by_rules = (input,rules) =>
     }
 };
 
+// Навешивание обработчика проверки на поля
 const handle_check_function = (e) =>
 {
     const {target} = e;
@@ -143,6 +148,7 @@ const call_element_event_onchange = (e) =>
     target.dispatchEvent(event);
 }
 
+// Навешивание обработчиков на формы
 for(let form of forms)
 {
     form.addEventListener("change",handle_check_function);

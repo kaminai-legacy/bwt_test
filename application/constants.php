@@ -1,4 +1,5 @@
 <?
+// Адреса старниц
 define("DB_URL","localhost");
 define("DB_NAME","bwt_test");
 define("DB_LOGIN","mysql");
@@ -9,9 +10,11 @@ define("FEEDBACK_URL","/feedback/list/1");
 define("HOME_URL","/");
 define("AUTHORIZATION_URL","/authorization");
 define("REGISTRATION_URL","/registration");
+// Конфигурационные параметры
 define("CITY_FOR_WEATHER_REQUEST","5093");
 define("NUMBER_FEEDBACKS_FOR_PAGE",5);
 define("NUMBER_FEEDBACKS_FOR_PAGINATION",5);
+// Данные для страницы с погодой
 define("LIST_OF_MONTHS",array(
     'Января',
 	'Февраля',
@@ -25,11 +28,4 @@ define("LIST_OF_MONTHS",array(
 	'Октября',
 	'Ноября',
     'Декабря',
-));
-define("CLOUDINESS",array(
-    0=>'Ясно',
-	1=>'Малооблачно',
-	2=>'Облачно',
-	3=>'Пасмурно',
-	101=>'Переменная облачность',
 ));

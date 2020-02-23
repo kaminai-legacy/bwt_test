@@ -3,6 +3,7 @@ class Route
 {
 	static function start()
 	{
+		// подцепляем файл с классом модели пользователя
 		include $_SERVER["DOCUMENT_ROOT"] . '/application/models/model_user.php';
 		// контроллер и действие по умолчанию
 		$controller_name = 'Home';
@@ -46,10 +47,6 @@ class Route
 		}
 		else
 		{
-			/*
-			правильно было бы кинуть здесь исключение,
-			но для упрощения сразу сделаем редирект на страницу 404
-			*/
 			Route::ErrorPage404();
 		}
 		
@@ -64,7 +61,6 @@ class Route
 		}
 		else
 		{
-			// здесь также разумнее было бы кинуть исключение
 			Route::ErrorPage404();
 		}
 	
@@ -74,7 +70,8 @@ class Route
 	{
         header('HTTP/1.1 404 Not Found');
 		header("Status: 404 Not Found");
-		header('Location:'. URL .'/404');
+		Route::redirect('/404');
+		//header('Location:'. URL .'/404');
 	}
 	
 	static function redirect($url)

@@ -10,6 +10,9 @@ class Controller_Feedback extends Controller
 	function action_list($page=1)
 	{	
 		$data = (object)[];
+		
+		include $_SERVER["DOCUMENT_ROOT"] . '/application/validation_rules.php';
+		
 		$data->current_page = FEEDBACK_URL;
 		$data->current_page = $page;
 
@@ -46,17 +49,50 @@ class Controller_Feedback extends Controller
 			
 		}
 		
-		if(( !( empty($_POST["feedback-submit"]) ) ) && ( isset($_POST["feedback-submit"]) ))
+		if(( !(empty($_POST["feedback-submit"])) ) && ( isset($_POST["feedback-submit"]) ))
 		{
 			if 
 			(
 				( !( empty($_POST["name"]) ) ) && ( isset($_POST["name"]) ) &&
 				( !( empty($_POST["email"]) ) ) && ( isset($_POST["email"]) ) &&
-				( !( empty($_POST["feedback"]) ) ) && ( isset($_POST["feedback"]) )
+				( !( empty($_POST["contain"]) ) ) && ( isset($_POST["contain"]) )
 			)
 			{
-				$this->model->send_feedback($_POST["name"], $_POST["email"], $_POST["feedback"]);
-				Route::redirect(FEEDBACK_URL);
+				$email = $email = filter_var(
+					$_POST["email"],
+					FILTER_VALIDATE_EMAIL
+				);
+				$name = $_POST["name"];
+				$contain = $_POST["contain"];
+
+				$email_error = null;
+				$name_error = null;
+
+				if(!$email)
+				{
+					$email_error = "Неподходящий email";
+				}
+		
+				$validation_rules->name->check_field($name);
+
+				if($validation_rules->name->has_error())
+				{
+					$name_error = $validation_rules->name->error;
+				}
+
+				if($email_error || $name_error)
+				{
+					$data->error_message = "В полях допущены ошибки";
+				}
+				else
+				{
+					$this->model->send_feedback($name, $email, $contain);
+					Route::redirect(FEEDBACK_URL);
+				}
+			}
+			else
+			{
+				$data->error_message = "В полях допущены ошибки";
 			}
 		}
 

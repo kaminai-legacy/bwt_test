@@ -1,3 +1,4 @@
+// Параметры валидации для клиента
 const FORM_VALIDATION_RULES = 
 {
     "email":

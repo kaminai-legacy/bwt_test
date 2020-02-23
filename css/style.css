@@ -78,7 +78,7 @@ body
 
 .bolder
 {
-	font-weight: 500;
+	font-weight: 600;
 }
 
 .text-centered
@@ -149,4 +149,31 @@ body
 .article
 {
 	font-size: medium;
+}
+
+.dark-blue
+{
+	color: #00006f;
+}
+
+.main_weather_forecast
+{
+	width: 20vw;
+	height: 20vw;
+	margin: 0 auto;
+	background-image:url(/img/weather_forecast.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+	margin-bottom: 30px;
+}
+
+.top-margin
+{
+	margin-top: 15px;
+}
+
+.sized-element
+{
+	display: inline-flex;
 }

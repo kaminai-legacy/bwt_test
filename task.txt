@@ -17,8 +17,8 @@
 - прислать нам ссылку на github проект.
 
 {
-    finished validation,(1/2)
-    check all project
+    finished validation,(2/2)(complete)
+    check all project(complete)
 }   
 
 ///-----
