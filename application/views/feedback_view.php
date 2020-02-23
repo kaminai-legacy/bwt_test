@@ -94,8 +94,8 @@
     </div>
     <div class="form-row">
             <div class="col-md-12 mb-3">
-                <label for="feedback-contain">Имя пользователя</label>
-                <textarea type="text" class="form-control" id="feedback-contain" placeholder="Отзыв, все очень круто" value="" data-validation="feedback" name="feedback" required></textarea>
+                <label for="feedback-contain">Отзыв</label>
+                <textarea type="text" class="form-control" id="feedback-contain" placeholder="Отзыв, все очень круто" value="" data-validation="contain" name="contain" required></textarea>
                 <div class="invalid-feedback" id="error-feedback-contain">
                     Some text   
                 </div>

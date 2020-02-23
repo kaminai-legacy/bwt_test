@@ -73,9 +73,9 @@
         </div>
 
         <div class="col-md-4 mb-3">
-            <label for="registration-confirm_pass">Подтверждение пароля</label>
-            <input type="password" class="form-control" id="registration-confirm_pass" placeholder="пароль" data-validation="confirm_pass" name="confirm_pass" value="" required>
-            <div class="invalid-feedback" id="error-registration-confirm_pass">
+            <label for="registration-confirm_password">Подтверждение пароля</label>
+            <input type="password" class="form-control" id="registration-confirm_password" placeholder="пароль" data-validation="confirm_password" name="confirm_password" value="" required>
+            <div class="invalid-feedback" id="error-registration-confirm_password">
                 Please choose a username.
             </div>
         </div>

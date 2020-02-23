@@ -4,8 +4,8 @@ const remove_string_value_from_attribute = (element, attribute, value) =>
     const index_of_needed_value = element_attribute.indexOf(value);
     if(index_of_needed_value != -1)
     {
-        element_attribute=element_attribute.replace(`${value}`,``);
-        element_attribute=element_attribute.replace(` ${value}`,``);
+        element_attribute=element_attribute.replace(new RegExp(`^${value}`),``);
+        element_attribute=element_attribute.replace(new RegExp(` ${value}`),``);
         element_attribute=element_attribute.replace(/  /g,` `);
         if(element_attribute[0]==" ")
         {
@@ -18,8 +18,8 @@ const remove_string_value_from_attribute = (element, attribute, value) =>
 const add_string_value_to_attribute = (element, attribute, value) =>
 {
     let element_attribute = element.getAttribute(attribute) || "";
-    const index_of_needed_value = element_attribute.indexOf(value);
-    if(index_of_needed_value == -1)
+    const index_of_needed_value = element_attribute.match(new RegExp(`^${value}`)) || element_attribute.match(new RegExp(` ${value}`));
+    if( ! index_of_needed_value)
     {
         if(element_attribute.length == 0)
         {

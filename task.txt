@@ -21,7 +21,15 @@
     check all project
 }   
 
+///-----
+ symfony/http-foundation vulnerabilities found in composer.lock 4 days ago
+Remediation
+Upgrade symfony/http-foundation to version 3.4.35 or later. For example:
 
+"require": {
+  "symfony/http-foundation": "3.4.35"
+}
+Always verify the validity and compatibility of suggestions with your codebase.
 
 
 
