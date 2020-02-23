@@ -49,6 +49,10 @@ const FORM_VALIDATION_RULES =
     {
         
     },
+    "captcha":
+    {
+        
+    },
     "password":
     {
         "min_length":

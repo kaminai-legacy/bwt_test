@@ -101,6 +101,21 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="row justify-content-center">    
+                <img src="/captcha/captcha.php" style="border:1px solid black;"/>
+        </div>
+        <div class="row justify-content-center top-margin">
+            <div class="col-md-3 mb-3">
+                <input type="text" class="form-control" id="feedback-captcha" placeholder="Текст с картинки выше" value="" data-validation="captcha" name="captcha" required>
+                <div class="invalid-feedback" id="error-feedback-captcha">
+                    Some text   
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="btn-wrapper">
         <input type="submit" class="btn btn-primary" name="feedback-submit" id="feedback-submit" value="Оставить отзыв"/>
         <?php if ( ( !( empty($data->error_message) ) ) &&  ( isset($data->error_message) ) ): ?>

@@ -55,7 +55,8 @@ class Controller_Feedback extends Controller
 			(
 				( !( empty($_POST["name"]) ) ) && ( isset($_POST["name"]) ) &&
 				( !( empty($_POST["email"]) ) ) && ( isset($_POST["email"]) ) &&
-				( !( empty($_POST["contain"]) ) ) && ( isset($_POST["contain"]) )
+				( !( empty($_POST["contain"]) ) ) && ( isset($_POST["contain"]) ) &&
+				( !( empty($_POST["captcha"]) ) ) && ( isset($_POST["captcha"]) )
 			)
 			{
 				$email = $email = filter_var(
@@ -64,6 +65,7 @@ class Controller_Feedback extends Controller
 				);
 				$name = $_POST["name"];
 				$contain = $_POST["contain"];
+				$captcha = $_POST["captcha"];
 
 				$email_error = null;
 				$name_error = null;
@@ -86,8 +88,15 @@ class Controller_Feedback extends Controller
 				}
 				else
 				{
-					$this->model->send_feedback($name, $email, $contain);
-					Route::redirect(FEEDBACK_URL);
+					if($captcha != $_SESSION['rand_code'])
+					{
+						$data->error_message = "Капча введена неправильно";
+					}
+					else
+					{
+						$this->model->send_feedback($name, $email, $contain);
+						Route::redirect(FEEDBACK_URL);
+					}
 				}
 			}
 			else
@@ -95,7 +104,6 @@ class Controller_Feedback extends Controller
 				$data->error_message = "В полях допущены ошибки";
 			}
 		}
-
 		$this->view->generate('feedback_view.php', 'template_view.php', $data);
 	}
 }

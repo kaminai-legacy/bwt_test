@@ -120,6 +120,10 @@ const handle_check_function = (e) =>
                         const {email:rules_email} = FORM_VALIDATION_RULES;
                         check_field_by_rules(field,rules_email);
                     break;
+                    case"captcha":
+                    const {captcha:rules_captcha} = FORM_VALIDATION_RULES;
+                    check_field_by_rules(field,rules_captcha);
+                break;
                     default:;
                 }
             }
