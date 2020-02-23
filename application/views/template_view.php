@@ -33,7 +33,7 @@
       <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark bolder" href=<?= HOME_URL?>>Домашняя</a>
         <a class="p-2 text-dark bolder" href=<?= WEATHER_URL?>>Погода</a>
-        <a class="p-2 text-dark bolder" href=<?= FEEDBACK_URL?>>Отзывы</a>
+        <a class="p-2 text-dark bolder" href=<?= FEEDBACK_LIST_URL?>>Отзывы</a>
       </nav>
       <?php if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) ): ?>
         <div class="dropdown dropleft">
