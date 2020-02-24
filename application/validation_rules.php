@@ -98,5 +98,5 @@ $validation_rules->name = new Rules(3,40);
 $validation_rules->forename = new Rules(3,40);
 $reg_exp_for_password = (object)[];
 $reg_exp_for_password->value = '/([a-z0-9]){6,}/i';
-$reg_exp_for_password->error_message = "В пароле должна быть хотя бы одна цифра или буква латинского алфавита";
+$reg_exp_for_password->error_message = "Пароль должены быть из цифры или латинские буквы";
 $validation_rules->password = new Rules(6,40,$reg_exp_for_password);
