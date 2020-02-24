@@ -68,7 +68,7 @@ const FORM_VALIDATION_RULES =
         "match":
         {
             "value":/^([a-z0-9]){6,}$/ig,
-            "error_message":"Пароль должены быть из цифры или латинские буквы",
+            "error_message":"Пароль должены быть из цифр или латинских букв",
         },
     },
 };
