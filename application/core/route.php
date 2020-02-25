@@ -1,4 +1,10 @@
 <?php
+namespace Route;
+use controller_weather\controller_weather as controller_weather;
+use Controller_Home\Controller_Home as Controller_Home;
+use Controller_feedback\Controller_feedback as Controller_feedback;/*
+use controller_weather\controller_weather as controller_weather;*/
+
 class Route
 {
 	static function start()
@@ -51,6 +57,7 @@ class Route
 		}
 		
 		// создаем контроллер
+
 		$controller = new $controller_name;
 		$action = $action_name;
 

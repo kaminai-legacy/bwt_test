@@ -1,5 +1,5 @@
 {
-    "name": "bwtTest",
+    "name": "bwtTest/weather",
     "description": "weather parser",
     "license": "top-secret",
     "authors": [
@@ -18,11 +18,12 @@
     "autoload": {
         "psr-4": {
             "Services\\": "services",
-            "App\\": "app"
+            "application\\": "application"
         },
         "classmap": [
-            "services/myserv/",
-            "services/myserv/Ksl.php"
+            "/application/models/",
+            "/application/core/",
+            "/application/controllers/"
         ],
         "files": [
             "/application/constants.php"

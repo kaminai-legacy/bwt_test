@@ -1,4 +1,8 @@
 <?
+//namespace Controller_Home;
+use Controller\Controller as Controller;
+use View\View as View;
+
 class Controller_Home extends Controller
 {
 	function action_index()

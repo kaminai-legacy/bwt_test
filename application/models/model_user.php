@@ -1,4 +1,7 @@
 <?
+namespace Model_User;
+use Model\Model as Model;
+
 class Model_User extends Model
 {
 	

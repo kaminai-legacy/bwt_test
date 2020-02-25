@@ -1,4 +1,6 @@
 <?
+namespace Model_Weather;
+use Model\Model as Model;
 class Model_Weather extends Model
 {
 	function get_weather(){

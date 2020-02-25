@@ -1,4 +1,7 @@
 <?
+namespace Model_Feedback;
+use Model\Model as Model;
+
 class Model_Feedback extends Model
 {
 	

@@ -1,6 +1,6 @@
 <?
-//namespace pdo;
-
+namespace My_Pdo;
+use PDO;
 class My_Pdo
 {
 	private static $_instance = null;

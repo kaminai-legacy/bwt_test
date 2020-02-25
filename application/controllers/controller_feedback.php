@@ -1,4 +1,10 @@
 <?
+//namespace Controller_Feedback;
+use Controller\Controller as Controller;
+use Model_Feedback\Model_Feedback as Model_Feedback;
+use View\View as View;
+use Route\Route as Route;
+
 class Controller_Feedback extends Controller
 {
 	function __construct()

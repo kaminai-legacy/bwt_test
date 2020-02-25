@@ -1,4 +1,8 @@
-<?class Controller {
+<?
+namespace Controller;
+use View\View as View;
+
+class Controller {
 	
 	public $model;
 	public $view;

@@ -1,4 +1,7 @@
 <?php
+//namespace Controller_404;
+use Controller\Controller as Controller;
+use View\View as View;
 
 class Controller_404 extends Controller
 {
