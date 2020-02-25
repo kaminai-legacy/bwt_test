@@ -95,7 +95,6 @@ class Controller_Registration extends Controller
 		
 		$data->current_page = REGISTRATION_URL;
 		$data->genders = $this->model->get_genders();
-
 		$this->view->generate('registration_view.php', 'template_view.php', $data);
 	}
 }

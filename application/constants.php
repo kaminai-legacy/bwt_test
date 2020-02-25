@@ -1,9 +1,11 @@
 <?
 // Адреса старниц
+define("DB_DRIVER","mysql");
 define("DB_URL","localhost");
 define("DB_NAME","bwt_test");
 define("DB_LOGIN","mysql");
 define("DB_PASSWORD","mysql");
+define("DB_DSN",DB_DRIVER . ':dbname=' . DB_NAME . ';host=' . DB_URL);
 define("URL",'http://'.$_SERVER['HTTP_HOST']);
 define("WEATHER_URL","/weather");
 define("FEEDBACK_URL","/feedback");
