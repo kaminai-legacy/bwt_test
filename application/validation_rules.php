@@ -1,5 +1,5 @@
 <?
-namespace Validation_Rules;
+namespace application;
 // класс правил для полей валидации серверной части
 class Rules 
 {

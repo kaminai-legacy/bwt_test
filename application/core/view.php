@@ -1,5 +1,5 @@
 <?
-namespace View;
+namespace Application\Core;
 
 class View
 {

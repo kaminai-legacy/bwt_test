@@ -1,7 +1,6 @@
 <?
-//namespace Controller_Home;
-use Controller\Controller as Controller;
-use View\View as View;
+namespace Application\Controllers;
+use Application\Core\Controller;
 
 class Controller_Home extends Controller
 {

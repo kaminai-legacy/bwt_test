@@ -1,6 +1,6 @@
 <?
-namespace Model_Feedback;
-use Model\Model as Model;
+namespace Application\Models;
+use Application\Core\Model;
 
 class Model_Feedback extends Model
 {

@@ -1,6 +1,6 @@
 <?
-namespace Model_User;
-use Model\Model as Model;
+namespace Application\Models;
+use Application\Core\Model;
 
 class Model_User extends Model
 {

@@ -1,16 +1,22 @@
 <?php
-namespace Route;
-use controller_weather\controller_weather as controller_weather;
-use Controller_Home\Controller_Home as Controller_Home;
-use Controller_feedback\Controller_feedback as Controller_feedback;/*
-use controller_weather\controller_weather as controller_weather;*/
+namespace Application\Core;
+use Application\Controllers\Controller_404;
+
+/*
+use Application\Controllers\Controller_Home;
+use Application\Controllers\Controller_404;
+use Application\Controllers\Controller_Authorization;
+use Application\Controllers\Controller_Feedback;
+use Application\Controllers\Controller_Logout;
+use Application\Controllers\Controller_Registration;
+use Application\Controllers\Controller_Weather;*/
 
 class Route
 {
 	static function start()
 	{
 		// подцепляем файл с классом модели пользователя
-		include $_SERVER["DOCUMENT_ROOT"] . '/application/models/model_user.php';
+		//include $_SERVER["DOCUMENT_ROOT"] . '/application/models/model_user.php';
 		// контроллер и действие по умолчанию
 		$controller_name = 'Home';
 		$action_name = 'index';
@@ -30,8 +36,8 @@ class Route
 		}
 
 		// добавляем префиксы
-		$model_name = 'Model_'.$controller_name;
-		$controller_name = 'Controller_'.$controller_name;
+		$model_name = 'Model_' . ucfirst($controller_name);
+		$controller_name = 'Controller_' . ucfirst($controller_name);
 		$action_name = 'action_'.$action_name;
 
 		// подцепляем файл с классом модели (файла модели может и не быть)
@@ -40,7 +46,7 @@ class Route
 		$model_path = "application/models/".$model_file;
 		if(file_exists($model_path))
 		{
-			include "application/models/".$model_file;
+			//include "application/models/".$model_file;
 		}
 
 		// подцепляем файл с классом контроллера
@@ -49,7 +55,7 @@ class Route
 	
 		if(file_exists($controller_path))
 		{
-			include "application/controllers/".$controller_file;
+			//include "application/controllers/".$controller_file;
 		}
 		else
 		{
@@ -57,8 +63,8 @@ class Route
 		}
 		
 		// создаем контроллер
-
-		$controller = new $controller_name;
+		$full_controller_class_name = "Application\\Controllers\\" . $controller_name;
+		$controller = new $full_controller_class_name;
 		$action = $action_name;
 
 		if(method_exists($controller, $action))

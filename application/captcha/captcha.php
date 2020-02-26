@@ -9,7 +9,7 @@ for ($i = 0; $i < 7; $i++) {
  
 $_SESSION['rand_code'] = $string;
  
-$dir = $_SERVER["DOCUMENT_ROOT"] . '/captcha/fonts/';
+$dir = __DIR__ . '/fonts/';
  
 $font_file = 'OpenSans.ttf';
 

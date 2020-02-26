@@ -1,9 +1,9 @@
 <?php
-//namespace Controller_Logout;
-use Controller\Controller as Controller;
-use Model_User\Model_User as Model_User;
-use View\View as View;
-use Route\Route as Route;
+namespace Application\Controllers;
+use Application\Core\Controller;
+use Application\Core\View;
+use Application\Core\Route;
+use Application\Models\Model_User;
 
 class Controller_Logout extends Controller
 {

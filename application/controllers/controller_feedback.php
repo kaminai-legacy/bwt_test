@@ -1,9 +1,8 @@
 <?
-//namespace Controller_Feedback;
-use Controller\Controller as Controller;
-use Model_Feedback\Model_Feedback as Model_Feedback;
-use View\View as View;
-use Route\Route as Route;
+namespace Application\Controllers;
+use Application\Core\Controller;
+use Application\Core\View;
+use Application\Models\Model_Feedback;
 
 class Controller_Feedback extends Controller
 {

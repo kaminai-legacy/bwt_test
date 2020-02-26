@@ -1,6 +1,6 @@
 <?
-namespace Model_Authorization;
-use Model\Model as Model;
+namespace Application\Models;
+use Application\Core\Model;
 
 class Model_Authorization extends Model
 {

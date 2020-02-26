@@ -17,16 +17,12 @@
     
     "autoload": {
         "psr-4": {
-            "Services\\": "services",
-            "application\\": "application"
+            "Application\\Core\\": "application/core",
+            "Application\\Controllers\\": "application/controllers",
+            "Application\\Models\\": "application/models"
         },
-        "classmap": [
-            "/application/models/",
-            "/application/core/",
-            "/application/controllers/"
-        ],
         "files": [
-            "/application/constants.php"
+            "application/constants.php"
         ]
     }
 }

@@ -1,8 +1,7 @@
 <?
-namespace Model;
+namespace Application\Core;
 
 use GuzzleHttp\Client;
-use My_Pdo\My_Pdo as My_Pdo;
 
 class Model extends My_Pdo
 {

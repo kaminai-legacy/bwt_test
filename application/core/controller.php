@@ -1,6 +1,6 @@
 <?
-namespace Controller;
-use View\View as View;
+namespace Application\Core;
+use Application\Core\View;
 
 class Controller {
 	

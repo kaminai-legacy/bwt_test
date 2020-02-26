@@ -1,8 +1,8 @@
 <?
-//namespace Controller_Weather;
-use Controller\Controller as Controller;
-use Model_Weather\Model_Weather as Model_Weather;
-use View\View as View;
+namespace Application\Controllers;
+use Application\Core\Controller;
+use Application\Core\View;
+use Application\Models\Model_Weather;
 
 class Controller_Weather extends Controller
 {

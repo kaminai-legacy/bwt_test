@@ -1,5 +1,5 @@
 <?
-namespace My_Pdo;
+namespace Application\Core;
 use PDO;
 class My_Pdo
 {

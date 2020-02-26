@@ -1,6 +1,6 @@
 <?
-namespace Model_Registration;
-use Model\Model as Model;
+namespace Application\Models;
+use Application\Core\Model;
 
 class Model_Registration extends Model
 {
