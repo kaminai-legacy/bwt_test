@@ -2,7 +2,10 @@
 namespace Application\Controllers;
 use Application\Core\Controller;
 use Application\Core\View;
+use Application\Core\Route;
 use Application\Models\Model_Feedback;
+use Application\Captcha\Captcha;
+use Application\Validator\Validator;
 
 class Controller_Feedback extends Controller
 {
@@ -58,7 +61,7 @@ class Controller_Feedback extends Controller
 				}
 				else
 				{
-					if($captcha != $_SESSION['rand_code'])
+					if(!Captcha::check($captcha))
 					{
 						$data->error_message = "Капча введена неправильно";
 					}
@@ -75,6 +78,29 @@ class Controller_Feedback extends Controller
 			}
 		}
 
+		$fields = [
+			[
+				"jack",
+				2,
+				40
+			],
+			[
+				"m2w",
+				4,
+				40
+			],
+			[
+				"@mail",
+				2,
+				40
+			]
+		];
+		$validator = new Validator($fields);
+		$reslt = $validator->checkFields();
+		echo $reslt;
+
+
+		$data->captcha_source = Captcha::html('style="border:1px solid black;"');
 		$this->view->generate('feedback_view.php', 'template_view.php', $data);
 	}
 

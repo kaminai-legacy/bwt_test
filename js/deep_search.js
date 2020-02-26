@@ -23,6 +23,6 @@ const deep_search = (needed_tag, current_tag, result_accumulator=[]) =>
         }
 
     }
-
+    
     return result_accumulator;
-}  
+}

@@ -17,6 +17,7 @@ define("REGISTRATION_URL","/registration");
 define("CITY_FOR_WEATHER_REQUEST","5093");
 define("NUMBER_FEEDBACKS_FOR_PAGE",5);
 define("NUMBER_FEEDBACKS_FOR_PAGINATION",5);
+define('CAPTCHA_SESSION_VAR','CAPTCHA');
 // Данные для страницы с погодой
 define("LIST_OF_MONTHS",array(
     'Января',

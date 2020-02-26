@@ -29,7 +29,7 @@
 
     <div class="container">
         <div class="row justify-content-center">    
-                <img src="/application/captcha/captcha.php" style="border:1px solid black;"/>
+                <?=$data->captcha_source?>
         </div>
         <div class="row justify-content-center top-margin">
             <div class="col-md-3 mb-3">

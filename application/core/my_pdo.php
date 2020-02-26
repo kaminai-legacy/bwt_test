@@ -36,7 +36,7 @@ class My_Pdo
 
 	public static function db_select_array($query, $key="temp")
 	{
-		self::do_query($query, $key);
+		self::db_query($query, $key);
 		if(array_key_exists($key, self::$prepared_queries))
 		{
 			$query_result = self::$prepared_queries[$key];
@@ -55,7 +55,7 @@ class My_Pdo
 
 	public static function db_select_row($query, $key="temp")
 	{
-		self::do_query($query, $key);
+		self::db_query($query, $key);
 		if(array_key_exists($key, self::$prepared_queries))
 		{
 			$query_result = self::$prepared_queries[$key];
@@ -72,7 +72,7 @@ class My_Pdo
 		
 	}
 
-	public static function do_query($query, $key)
+	public static function db_query($query, $key="temp")
 	{
 		self::db_prepare_query($query, $key);
 		self::db_execute_query($key);

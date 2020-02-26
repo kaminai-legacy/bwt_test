@@ -19,7 +19,9 @@
         "psr-4": {
             "Application\\Core\\": "application/core",
             "Application\\Controllers\\": "application/controllers",
-            "Application\\Models\\": "application/models"
+            "Application\\Models\\": "application/models",
+            "Application\\Captcha\\": "application/captcha",
+            "Application\\Validator\\": "application/validator"
         },
         "files": [
             "application/constants.php"
