@@ -5,6 +5,7 @@ use Application\Core\View;
 use Application\Core\Route;
 use Application\Models\Model_User;
 use Application\Models\Model_Authorization;
+use Application\Validator\Validator;
 
 class Controller_Authorization extends Controller
 {
@@ -19,8 +20,6 @@ class Controller_Authorization extends Controller
 	{	
 		$data = (object)[];
 
-		include $_SERVER["DOCUMENT_ROOT"] . '/application/validation_rules.php';
-
 		if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) )
 		{
 			Route::redirect(HOME_URL);
@@ -33,29 +32,34 @@ class Controller_Authorization extends Controller
 				( !( empty($_POST["email"]) ) ) && ( isset($_POST["email"]) ) &&
 				( !( empty($_POST["password"]) ) ) && ( isset($_POST["password"]) )
 			)
-			{				
+			{	
+
 				$password = $_POST["password"];
-				$email = filter_var(
-					$_POST["email"],
-					FILTER_VALIDATE_EMAIL
-				);
+				$email = $_POST["email"];
 
-				$email_error = null;
-				$password_error = null;
+				$fields_for_validator = [
+					[
+						"password",
+						$password,
+						"password",
+						6,
+						40,
+						(object)[
+							"value"=>'/([a-z0-9]){6,}/i',
+							"error_message"=>"Пароль должены быть из цифр или латинских букв",
+						]
+					],
+					[
+						"email",
+						$email,
+						"email"
+					]
+				];
 
-				if(!$email)
-				{
-					$email_error = "Неподходящий email";
-				}
-		
-				$validation_rules->password->check_field($password);
+				$validator = new Validator($fields_for_validator);
+				$reslt_of_validation = $validator->checkFieldsHasError();		
 
-				if($validation_rules->password->has_error())
-				{
-					$password_error = $validation_rules->password->error;
-				}
-
-				if($email_error || $password_error)
+				if($reslt_of_validation)
 				{
 					$data->error_message = "В полях допущены ошибки";
 				}

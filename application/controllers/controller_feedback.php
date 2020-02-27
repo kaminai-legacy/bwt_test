@@ -20,8 +20,6 @@ class Controller_Feedback extends Controller
 		$data = (object)[];
 		$data->current_page = FEEDBACK_URL;
 
-		include $_SERVER["DOCUMENT_ROOT"] . '/application/validation_rules.php';
-
 		if(( !(empty($_POST["feedback-submit"])) ) && ( isset($_POST["feedback-submit"]) ))
 		{
 			if 
@@ -32,30 +30,38 @@ class Controller_Feedback extends Controller
 				( !( empty($_POST["captcha"]) ) ) && ( isset($_POST["captcha"]) )
 			)
 			{
-				$email = $email = filter_var(
-					$_POST["email"],
-					FILTER_VALIDATE_EMAIL
-				);
+
+				$email = $_POST["email"];
 				$name = $_POST["name"];
 				$contain = $_POST["contain"];
 				$captcha = $_POST["captcha"];
 
-				$email_error = null;
-				$name_error = null;
+				$fields_for_validator = [
+					[
+						"name",
+						$name,
+						"text",
+						2,
+						40
+					],
+					[
+						"contain",
+						$contain,
+						"text",
+						4,
+						40
+					],
+					[	
+						"email",
+						$email,
+						"email"
+					]
+				];
 
-				if(!$email)
-				{
-					$email_error = "Неподходящий email";
-				}
-		
-				$validation_rules->name->check_field($name);
+				$validator = new Validator($fields_for_validator);
+				$reslt_of_validation = $validator->checkFieldsHasError();
 
-				if($validation_rules->name->has_error())
-				{
-					$name_error = $validation_rules->name->error;
-				}
-
-				if($email_error || $name_error)
+				if($reslt_of_validation)
 				{
 					$data->error_message = "В полях допущены ошибки";
 				}
@@ -78,28 +84,6 @@ class Controller_Feedback extends Controller
 			}
 		}
 
-		$fields = [
-			[
-				"jack",
-				2,
-				40
-			],
-			[
-				"m2w",
-				4,
-				40
-			],
-			[
-				"@mail",
-				2,
-				40
-			]
-		];
-		$validator = new Validator($fields);
-		$reslt = $validator->checkFields();
-		echo $reslt;
-
-
 		$data->captcha_source = Captcha::html('style="border:1px solid black;"');
 		$this->view->generate('feedback_view.php', 'template_view.php', $data);
 	}
@@ -107,8 +91,6 @@ class Controller_Feedback extends Controller
 	function action_list($page=1)
 	{	
 		$data = (object)[];
-		
-		include $_SERVER["DOCUMENT_ROOT"] . '/application/validation_rules.php';
 		
 		$data->current_page = FEEDBACK_LIST_URL;
 		$data->current_page = $page;

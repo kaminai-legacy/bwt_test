@@ -5,6 +5,7 @@ use Application\Core\View;
 use Application\Core\Route;
 use Application\Models\Model_User;
 use Application\Models\Model_Registration;
+use Application\Validator\Validator;
 
 class Controller_Registration extends Controller
 {
@@ -19,8 +20,6 @@ class Controller_Registration extends Controller
 	function action_index()
 	{	
 		$data = (object)[];
-
-		include $_SERVER["DOCUMENT_ROOT"] . '/application/validation_rules.php';
 		
 		if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) )
 		{
@@ -38,53 +37,63 @@ class Controller_Registration extends Controller
 				( !( empty($_POST["confirm_password"]) ) ) && ( isset($_POST["confirm_password"]) )
 			)
 			{
-				$email = $email = filter_var(
-					$_POST["email"],
-					FILTER_VALIDATE_EMAIL
-				);
+
+				$email = $_POST["email"];
 				$name = $_POST["name"];
 				$forename = $_POST["forename"];
 				$password = $_POST["password"];
 				$confirm_password = $_POST["confirm_password"];
 
-				$email_error = null;
-				$name_error = null;
-				$password_error = null;
-				$forename_error = null;
-				$confirm_password_error = null;
+				$fields_for_validator = [
+					[
+						"password",
+						$password,
+						"password",
+						6,
+						40,
+						(object)[
+							"value"=>'/([a-z0-9]){6,}/i',
+							"error_message"=>"Пароль должены быть из цифр или латинских букв",
+						]
+					],
+					[
+						"confirm_password",
+						$confirm_password,
+						"password",
+						6,
+						40,
+						(object)[
+							"value"=>'/([a-z0-9]){6,}/i',
+							"error_message"=>"Пароль должены быть из цифр или латинских букв",
+						]
+					],
+					[
+						"name",
+						$name,
+						"text",
+						2,
+						40
+					],
+					[
+						"forename",
+						$forename,
+						"text",
+						2,
+						40
+					],
+					[
+						"email",
+						$email,
+						"email"
+					]
+				];
 
-				if(!$email)
-				{
-					$email_error = "Неподходящий email";
-				}
+				$validator = new Validator($fields_for_validator);
+				$reslt_of_validation = $validator->checkFieldsHasError();
 
-				$validation_rules->password->check_field($password);
+				$confirm_password_error = $validator->getFieldByName("confirm_password")->hasConfirmError($password);
 
-				if($validation_rules->password->has_error())
-				{
-					$password_error = $validation_rules->password->error;
-				}
-
-				$validation_rules->forename->check_field($forename);
-
-				if($validation_rules->forename->has_error())
-				{
-					$forename_error = $validation_rules->forename->error;
-				}
-
-				$validation_rules->name->check_field($name);
-
-				if($validation_rules->name->has_error())
-				{
-					$name_error = $validation_rules->name->error;
-				}
-
-				if($password != $confirm_password)
-				{
-					$confirm_password_error = "Пароли не совпадают";
-				}
-
-				if($email_error || $name_error || $password_error || $forename_error || $confirm_password_error)
+				if($reslt_of_validation || $confirm_password_error)
 				{
 					$data->error_message = "В полях допущены ошибки";
 				}

@@ -48,7 +48,7 @@ class My_Pdo
 		}
 		else
 		{
-			throw new \Exception("Query does't exist");
+			return "Ошибка с запросом";
 		}
 		
 	}
@@ -67,7 +67,7 @@ class My_Pdo
 		}
 		else
 		{
-			throw new \Exception("Query does't exist");
+			return "Ошибка с запросом";
 		}
 		
 	}

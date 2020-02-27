@@ -15,8 +15,6 @@ class Route
 {
 	static function start()
 	{
-		// подцепляем файл с классом модели пользователя
-		//include $_SERVER["DOCUMENT_ROOT"] . '/application/models/model_user.php';
 		// контроллер и действие по умолчанию
 		$controller_name = 'Home';
 		$action_name = 'index';
@@ -36,35 +34,27 @@ class Route
 		}
 
 		// добавляем префиксы
-		$model_name = 'Model_' . ucfirst($controller_name);
 		$controller_name = 'Controller_' . ucfirst($controller_name);
 		$action_name = 'action_'.$action_name;
+		
+		
+		
+		$full_controller_class_name = "Application\\Controllers\\" . $controller_name;
 
-		// подцепляем файл с классом модели (файла модели может и не быть)
-
-		$model_file = strtolower($model_name).'.php';
-		$model_path = "application/models/".$model_file;
-		if(file_exists($model_path))
-		{
-			//include "application/models/".$model_file;
-		}
-
-		// подцепляем файл с классом контроллера
 		$controller_file = strtolower($controller_name).'.php';
 		$controller_path = "application/controllers/".$controller_file;
-	
+		
+		// Проверяем есть ли такой контроллер
 		if(file_exists($controller_path))
 		{
-			//include "application/controllers/".$controller_file;
+			// создаем контроллер
+			$controller = new $full_controller_class_name;
 		}
 		else
 		{
 			Route::ErrorPage404();
 		}
-		
-		// создаем контроллер
-		$full_controller_class_name = "Application\\Controllers\\" . $controller_name;
-		$controller = new $full_controller_class_name;
+
 		$action = $action_name;
 
 		if(method_exists($controller, $action))
@@ -84,7 +74,6 @@ class Route
         header('HTTP/1.1 404 Not Found');
 		header("Status: 404 Not Found");
 		Route::redirect('/404');
-		//header('Location:'. URL .'/404');
 	}
 	
 	static function redirect($url)
