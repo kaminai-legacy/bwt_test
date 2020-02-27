@@ -1,4 +1,4 @@
-<?php if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) ): ?>
+<?php if ((!(empty($_SESSION['user']))) && (isset($_SESSION['user']))): ?>
 <form method="post" class="form" id="feedback">
     <div class="form-row">
         <div class="col-md-6 mb-3">
@@ -42,7 +42,7 @@
     </div>
     <div class="btn-wrapper">
         <input type="submit" class="btn btn-primary" name="feedback-submit" id="feedback-submit" value="Отправить отзыв"/>
-        <?php if ( ( !( empty($data->error_message) ) ) &&  ( isset($data->error_message) ) ): ?>
+        <?php if ((!(empty($data->error_message))) && (isset($data->error_message))): ?>
             <br/>
             <div class="alert alert-danger top-margin" role="alert">
                 <?=$data->error_message?>

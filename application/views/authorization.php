@@ -22,7 +22,7 @@
       </div>
     <div class="btn-wrapper">
         <input type="submit" class="btn btn-primary" id="authorization-submit" name="authorization-submit" value="Авторизоваться"/>
-        <?php if ( ( !( empty($data->error_message) ) ) &&  ( isset($data->error_message) ) ): ?>
+        <?php if ((!(empty($data->error_message))) && (isset($data->error_message))): ?>
             <br/>
             <div class="alert alert-danger top-margin" role="alert">
                 <?=$data->error_message?>

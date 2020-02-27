@@ -29,17 +29,19 @@
         <div class="col-md-2 mb-3">
             <label for="registration-gender">Пол пользователя</label>
             <select class="form-control" data-validation="gender" id="registration-gender" name="gender" data-validation="gender" name="gender">
-                <?
-                    foreach($data->genders as $id=>$value)
-                    {
+                <?php
+                    $genders = $data->genders;
+                    foreach ($genders as $key => $value) {
                         ?>
                             <option 
-                                value=<?=$value["id"]?> 
-                                <? if($value["name"] == "не выбран"){echo "selected";}?>
+                                value=<?=$value['id']?> 
+                                <?php if ($value['name'] == SELECTED_GENDER_BY_DEFAULT) {
+                            echo 'selected';
+                        } ?>
                             >
-                                <?=$value["name"]?>
+                                <?=$value['name']?>
                             </option>
-                        <?
+                        <?php
                     }
                 ?>
             </select> 
@@ -73,7 +75,7 @@
     </div>
     <div class="btn-wrapper">
         <input type="submit" class="btn btn-primary" id="registration-submit" name="registration-submit" value="Зарегистрироваться"/>
-        <?php if ( ( !( empty($data->error_message) ) ) &&  ( isset($data->error_message) ) ): ?>
+        <?php if ((!(empty($data->error_message))) && (isset($data->error_message))): ?>
             <br/>
             <div class="alert alert-danger top-margin" role="alert">
                 <?=$data->error_message?>

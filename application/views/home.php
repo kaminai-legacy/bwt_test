@@ -28,7 +28,7 @@
                     <h5 class="card-title">Нам важно ваше мнение</h5>
                     <p class="card-text"> Не скупитесь на отзывы, они помогают нам становится лучше, ведь мы внимательно просматриваем каждый и берем все сказаное во внимание</p>
                     <div class="row justify-content-center">
-                        <a href=<?= FEEDBACK_URL?> class="btn btn-primary">
+                        <a href=<?= FEEDBACK_LIST_URL?> class="btn btn-primary">
                             Отзывы
                         </a>     
                     </div>

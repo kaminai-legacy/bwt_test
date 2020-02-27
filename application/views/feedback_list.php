@@ -1,15 +1,12 @@
-<?php if ( ( !( empty($_SESSION["user"]) ) ) &&  ( isset($_SESSION["user"]) ) ): ?>
+<?php if ((!(empty($_SESSION['user']))) && (isset($_SESSION['user']))): ?>
     <?foreach($data->contain as $key=>$value):?>
         <div class="container">
-            <div class="<?
-                    if($_SESSION["user"]["id"]==$value["user_id"])
-                    {
+            <div class="<?php
+                    if ($_SESSION['user']['id'] == $value['user_id']) {
                         echo 'row justify-content-end';
-                    }   
-                    else
-                    {
+                    } else {
                         echo 'row justify-content-start';
-                    }       
+                    }
                 ?>"
                 >
                 <div class="col-sm-10">
@@ -24,21 +21,21 @@
                 ?>" 
                 >
                         <div class="panel-heading">
-                            <?php if ($_SESSION["user"]["id"]==$value["user_id"]): ?>
+                            <?php if ($_SESSION['user']['id'] == $value['user_id']): ?>
                                 <strong>
-                                    <?="Вы"?>
+                                    <?='Вы'?>
                                 </strong>
                             <?php else: ?>
                                 <strong>
-                                    <?= $value["name"]?>
+                                    <?= $value['name']?>
                                 </strong>
                                 <span class="text-muted">
-                                    (<?= $value["email"]?>)
+                                    (<?= $value['email']?>)
                                 </span>
                             <?php endif; ?>
                         </div>
                         <div class="panel-body">
-                            <?= $value["text"]?>
+                            <?= $value['text']?>
                         </div>
                     </div>
                 </div>
@@ -50,7 +47,7 @@
         <nav aria-label="Page navigation example" style="display: inline-flex;">
             <ul class="pagination" style="display: inline-flex;">
                 <li class="page-item <?if($data->current_page-1 <= 0){ echo "disabled";}?>">
-                    <a class="page-link" href=<?=$data->current_page-1?> aria-label="Previous">
+                    <a class="page-link" href=<?=$data->current_page - 1?> aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -65,7 +62,7 @@
                     </li>
                 <?endfor;?>
                 <li class="page-item <?if($data->current_page+1 > $data->last_page_for_pagination){ echo "disabled";}?>">
-                    <a class="page-link" href=<?=$data->current_page+1?> aria-label="Next">
+                    <a class="page-link" href=<?=$data->current_page + 1?> aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
