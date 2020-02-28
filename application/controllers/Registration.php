@@ -84,7 +84,7 @@ class Registration extends Controller
                 ];
 
                 $validator = new Validator($fields_for_validator);
-                $reslt_of_validation = $validator-> checkHasFieldsError();
+                $reslt_of_validation = $validator-> hasFieldsError();
 
                 $confirm_password_error = $validator->getFieldByName('confirm_password')->hasConfirmError($password);
 

@@ -56,7 +56,7 @@ class Feedback extends Controller
                 ];
 
                 $validator = new Validator($fields_for_validator);
-                $reslt_of_validation = $validator->checkHasFieldsError();
+                $reslt_of_validation = $validator->hasFieldsError();
 
                 if ($reslt_of_validation) {
                     $data->error_message = "В полях допущены ошибки";

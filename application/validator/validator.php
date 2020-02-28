@@ -13,7 +13,7 @@ class Validator
         }
     }
 
-    public function checkHasFieldsError()
+    public function hasFieldsError()
     {
         $this->hasError = false;
         $instances = $this->instances;
